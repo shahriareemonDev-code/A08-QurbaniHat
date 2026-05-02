@@ -9,12 +9,12 @@
     "age": 3,
     "location": "Bogura",
     "description": "Healthy deshi cow suitable for Qurbani. Well fed with natural food.",
-    "image": "https://i.postimg.cc/7Z0h3vKk/cow1.jpg",
+    "image": "https://images.unsplash.com/photo-1598715685267-0f45367d8071?",
     "category": "Large Animal"
   },
   {
     "id": 2,
-    "name": "Premium Black Goat",
+    "name": " Black Goat",
     "type": "Goat",
     "breed": "Black Bengal",
     "price": 25000,
@@ -22,7 +22,7 @@
     "age": 2,
     "location": "Dhaka",
     "description": "Strong and healthy Black Bengal goat, perfect for Qurbani.",
-    "image": "https://i.postimg.cc/5t6Q3vGq/goat1.jpg",
+    "image": "https://images.unsplash.com/photo-1593750439808-958d28558592?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGdvYXR8ZW58MHx8MHx8fDA%3D",
     "category": "Small Animal"
   },
   {
