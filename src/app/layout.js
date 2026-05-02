@@ -1,9 +1,9 @@
-import {Manrope} from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const ManropeFont  = Manrope({
+const ManropeFont = Manrope({
   subsets: ["latin"],
 });
 
@@ -20,11 +20,12 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${ManropeFont.className} h-full antialiased`}
     >
-      <body >
-        <Navbar> </Navbar>
-        <main className="max-w-[80%] mx-auto"> {children} </main>
-        <Footer> </Footer>
-        </body>
+      <body>
+        <Navbar />
+        {children}
+        
+        <Footer />
+      </body>
     </html>
   );
 }

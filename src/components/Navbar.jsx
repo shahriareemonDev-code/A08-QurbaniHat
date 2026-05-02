@@ -17,9 +17,9 @@ const Navbar = () => {
                     height={50}
                 />
             </div>
-        <span className="text-xl font-semibold text-gray-800">
-          QurbaniHat
-        </span>
+        <h2 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-orange-500 bg-clip-text text-transparent">
+                QurbaniHat
+              </h2>
       </div>
 
       
