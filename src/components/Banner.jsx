@@ -18,15 +18,7 @@ const Banner = () => {
         </p>
 
        
-        <div className="mt-6 flex gap-4">
-          <button className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
-            Browse Animals →
-          </button>
-
-          <button className="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg">
-            Create Account
-          </button>
-        </div>
+        
 
        
         <div className="flex gap-10 mt-10 text-gray-800">

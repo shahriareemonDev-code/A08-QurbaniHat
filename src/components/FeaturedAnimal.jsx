@@ -1,7 +1,8 @@
+import AnimalCard from "./AnimalCard";
 
 
 const FeaturedAnimal = async() => {
-    const res = await fetch('https://a08-qurbani-hat.vercel.app/data.json', {cache: "no-store"}); 
+    const res = await fetch('https://a08-qurbani-hat.vercel.app/data.json'); 
    
     const animals = await res.json()
     const topAnimals = animals.slice(0, 4)
@@ -10,18 +11,9 @@ const FeaturedAnimal = async() => {
         <div>
             <h1 className="text-2xl font-semibold">Featured Animals</h1>
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid sm:grid-cols-2  lg:grid-cols-4 gap-5">
                 {
-                    topAnimals.map(animal => <div key={animal.id} > 
-                        <img className="rounded-t-xl overflow-hidden w-full object-cover" src={animal.image} alt="animal.name" />
-                        <p>Name- {animal.name}</p>
-                        <p>Breed- {animal.breed}</p>
-                        <p>{animal.location}</p>
-                        <p>{animal.weight}</p>
-                        <h2>TK{animal.price}</h2>
-                        
-                        
-                         </div> )
+                    topAnimals.map(animal => <AnimalCard key={animal.id} animal= {animal}> </AnimalCard> ) 
                 }
             </div>
 
