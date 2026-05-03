@@ -8,7 +8,7 @@ const AllAnimalsPage = async() => {
     return (
         <div className='site-wrapper'>
            <h1 className='font-bold text-4xl py-5 text-green-500'> ALL <span className='font-semibold text-4xl text-orange-500'>Animals</span></h1>
-           <div className='grid grid-cols-4 md:grid-cols-3 sm:grid-cols-2'>
+           <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
             {
                 animals.map(animal => <AnimalCard key={animal.id} animal={animal}> </AnimalCard>)
             }

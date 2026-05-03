@@ -24,7 +24,7 @@ const Navbar = () => {
 
       
       <div className=" md:flex gap-8 text-gray-700 font-medium">
-        <Link href="/" className="text-green-600">
+        <Link href="/" className="text-green-600 ">
           Home
         </Link>
         <Link href="/all-animals">

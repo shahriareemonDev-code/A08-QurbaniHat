@@ -1,4 +1,4 @@
-import { Card } from "@heroui/react";
+import { Card, Link } from "@heroui/react";
 import Image from "next/image";
 
 const AnimalCard = ({ animal }) => {
@@ -14,15 +14,15 @@ const AnimalCard = ({ animal }) => {
         />
       </div>
 
-      <div className="flex justify-between gap-2 p-1">
+      <div className="flex justify-between gap-3">
         <h3 className="font-display text-lg font-semibold leading-tight">
           {animal.name}
         </h3>
-        <span className="shrink-0 text-xs font-medium px-2 py-1 rounded-full bg-green-600 text-accent-foreground">
+        <span className=" text-xs px-2 py-2 rounded-full bg-green-600 text-accent-foreground">
           {animal.breed}
         </span>
       </div>
-      <div className="flex gap-8 ">
+      <div className="flex justify-between ">
         <p className="flex text-gray-700">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@ const AnimalCard = ({ animal }) => {
           </svg>
           {animal.location}
         </p>
-        <p className="flex text-gray-700 gap-1">
+        <p className="flex  text-gray-700 gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -67,9 +67,9 @@ const AnimalCard = ({ animal }) => {
         <h2 className="font-semibold text-xl text-green-600">
           TK-{animal.price}
         </h2>
-        <button className="bg-green-600 py-1 px-2 rounded-2xl text-white text-sm">
+        <Link href={`/all-animals/${animal.id}`}> <button className="bg-green-600 py-1 px-2 rounded-2xl text-white text-sm">
           Details
-        </button>
+        </button> </Link>
       </div>
       
     </Card>
