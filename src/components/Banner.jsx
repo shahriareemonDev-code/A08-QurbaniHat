@@ -20,7 +20,7 @@ const Banner = () => {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-green-600">64</h2>
+            <h2 className="text-2xl font-bold text-orange-500">64</h2>
             <p className="text-sm text-gray-500">Districts</p>
           </div>
 
