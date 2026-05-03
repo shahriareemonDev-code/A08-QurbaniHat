@@ -74,7 +74,9 @@ const Footer = () => {
             <p className="text-gray-600">
               © {new Date().getFullYear()} QurbaniHat. All rights reserved.
             </p>
-
+            Develop By 
+            <p className="font-semibold text-green-500">Shariare <span className="text-orange-400">Emon</span></p>
+           
             <div className="flex gap-4 mt-3 md:mt-0">
               <span className="hover:text-green-600 cursor-pointer">
                 Facebook
