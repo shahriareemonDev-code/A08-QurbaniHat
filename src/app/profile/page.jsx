@@ -1,5 +1,6 @@
 "use client";
 
+import UpdateProfilePage from "@/components/UpdateProfile";
 import { authClient } from "@/lib/auth-client";
 import { Avatar, Card } from "@heroui/react";
 import React from "react";
@@ -17,6 +18,7 @@ const ProfilePage = () => {
          <h2>{user?.name}</h2>
          <p>{user?.email}</p>
 
+         <UpdateProfilePage> </UpdateProfilePage>
       </Card>
     </div>
   );
