@@ -68,7 +68,7 @@ const AnimalCard = ({ animal }) => {
         <h2 className="font-semibold text-xl text-green-600">
           TK-{animal.price}
         </h2>
-        <Link href={`/all-animals/${animal.id}`}> <button className="bg-green-600 py-1 px-2 rounded-2xl text-white text-sm">
+        <Link href={`/all-animals/${animal.id}`}> <button className="no-underline bg-green-600 py-1 px-2 rounded-2xl text-white text-sm cursor-pointer">
           Details
         </button> </Link>
       </div>
