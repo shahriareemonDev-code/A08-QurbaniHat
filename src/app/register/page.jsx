@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 
+import Image from "next/image";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Check } from "@gravity-ui/icons";
@@ -17,10 +17,8 @@ import {
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 
-export default function Basic() {
-
-  const router = useRouter()
-
+export default function RegisterPage() {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (e) => {
@@ -35,86 +33,98 @@ export default function Basic() {
     });
 
     try {
-      await authClient.register.email({
+      await authClient.signIn.email({
+        name: data.name,
         email: data.email,
         password: data.password,
+        image: data.photoUrl, 
       });
 
-      const handleGoogleRegister = async() => {
-        await authClient.register.social({
-          provider: "google"
-        })
-      }
-
-      toast.success("Registerd successful ");
-      router.push('/');
+      toast.success("Registration successful ");
+      router.push("/");
 
     } catch (error) {
-      
-      toast.error(error?.message || "Login failed ");
-
+      toast.error(error?.message || "Registration failed");
     } finally {
       setLoading(false);
     }
   };
+   
+
+  const handleGoogleRegister = async () => {
+    console.log('google btn clickd')
+  try {
+      await authClient.signIn.social({
+        provider: "google",
+      });
+      
+
+    } 
+    catch (error) {
+      toast.error(error?.message || "Google Registration failed");
+    }
+  };
+ 
 
   return (
-    <div>
-      
-        <div className="flex justify-center p-20">
-        
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <Form
-        className="flex w-100 card p-10 flex-col shadow-2xl gap-4"
         onSubmit={onSubmit}
+        className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl flex flex-col gap-4"
       >
-          <h1 className="font-semibold text-4xl text-center mt-10 text-green-500 ">Register <span className="text-orange-500">Now</span></h1>
+        
+        <h1 className="text-3xl font-bold text-center text-green-500">
+          Create an <span className="text-orange-500">Account</span>
+        </h1>
 
-          <TextField isRequired name="name" type="name">
+        <TextField isRequired name="name" type="text">
           <Label>Name</Label>
-          <Input placeholder="Enter Your name" />
+          <Input placeholder="Enter your name" />
           <FieldError />
         </TextField>
-        
+
+       
         <TextField isRequired name="email" type="email">
-          <Label>Email</Label>
+          <Label>Email </Label>
           <Input placeholder="john@example.com" />
           <FieldError />
         </TextField>
-
         
-        <TextField isRequired minLength={8} name="password" type="password">
+        <TextField name="photoUrl" type="url">
+          <Label>Photo URL</Label>
+          <Input placeholder="https://example.com/photo.jpg" />
+          <FieldError />
+        </TextField>
+
+        <TextField isRequired name="password" type="password" minLength={8}>
           <Label>Password</Label>
           <Input placeholder="Enter your password" />
           <Description>
-            Must be at least 8 characters with 1 uppercase and 1 number
+            At least 8 characters, include uppercase & number
           </Description>
           <FieldError />
         </TextField>
 
-        <div className="flex justify-center gap-2">
-          <Button type="submit" disabled={loading}>
-            <Check />
-            {loading ? "Loading..." : "Register"}
-          </Button>
-        </div>
-        <div className="flex justify-center">
-  <Button onClick={handleGoogleRegister}
-    type="button"
-    className="flex items-center gap-2  border-gray-300 hover:bg-gray-100 text-black shadow-md"
-  >
-    <Image
-      src="/google.png"
-      alt="google"
-      width={20}
-      height={20}
-    />
-    Register with Google
-  </Button>
-  </div>
-      </Form>
+       <div className="flex justify-center">
+         <Button type="submit" disabled={loading}>
+          <Check />
+          {loading ? "Registering..." : "Register"}
+        </Button>
+       </div>
 
-       
-     </div>
+        <p className="text-center text-gray-500">OR</p>
+
+        <div className="flex justify-center">
+          <Button
+          type="button"
+          onClick={handleGoogleRegister}
+          className="gap-2 border border-gray-300 hover:bg-gray-100"
+        >
+          <Image src="/google.png" alt="google" width={20} height={20} />
+          Continue with Google
+        </Button>
+        </div>
+      </Form>
     </div>
   );
 }
