@@ -33,7 +33,7 @@ export default function RegisterPage() {
     });
 
     try {
-      await authClient.signUp.email({
+      await authClient.signIn.email({
         name: data.name,
         email: data.email,
         password: data.password,
@@ -41,6 +41,7 @@ export default function RegisterPage() {
       });
 
       toast.success("Registration successful ");
+
       router.push("/");
     } catch (error) {
       toast.error(error?.message || "Registration failed");
@@ -52,8 +53,9 @@ export default function RegisterPage() {
   const handleGoogleRegister = async () => {
     
     try {
-      await authClient.signUp.social({
+      await authClient.signIn.social({
         provider: "google",
+        callbackURL: "/"
       });
     } catch (error) {
       toast.error(error?.message || "Google Registration failed");

@@ -7,7 +7,6 @@ const Navbar = () => {
   return (
     <nav className="w-full bg-white shadow-sm px-4 sm:px-6 md:px-12 py-3 md:py-4 flex items-center justify-between">
       
-      {/* Logo Section */}
       <div className="flex items-center gap-2">
         <div className="flex items-center gap-2 sm:gap-3">
           <Image
@@ -24,7 +23,7 @@ const Navbar = () => {
         </h2>
       </div>
 
-      {/* Nav Links */}
+      
       <div className="flex gap-4 sm:gap-6 md:gap-8 text-gray-700 font-medium text-sm sm:text-base">
         <Link href="/" className="text-green-600">
           Home
@@ -34,7 +33,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Auth Buttons */}
+      
       <div className="flex items-center gap-2 sm:gap-3 md:gap-4 text-sm sm:text-base">
         <Link href="/login" className="text-gray-700 hidden sm:block">
           Login

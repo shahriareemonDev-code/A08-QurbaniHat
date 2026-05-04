@@ -14,8 +14,8 @@ const Footer = () => {
               <Image
                 src="/images qurbani (3).png"
                 alt="logo"
-                width={50}
-                height={50}
+                width={40}
+                height={40}
               />
               <h2 className="text-2xl font-bold bg-gradient-to-r from-green-600 to-orange-500 bg-clip-text text-transparent">
                 QurbaniHat
