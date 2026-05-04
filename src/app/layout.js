@@ -2,6 +2,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const ManropeFont = Manrope({
   subsets: ["latin"],
@@ -18,13 +19,14 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${ManropeFont.className} h-full antialiased`}
+      
     >
-      <body>
+      <body className="className={`${ManropeFont.className} h-full antialiased`}">
         <Navbar />
         {children}
-        
+       
         <Footer />
+         <Toaster position="top-right"/> 
       </body>
     </html>
   );

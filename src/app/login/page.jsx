@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -15,12 +14,8 @@ import {
 } from "@heroui/react";
 
 import { authClient } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
 
 export default function Basic() {
-
-  const router = useRouter()
-
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (e) => {
@@ -35,19 +30,13 @@ export default function Basic() {
     });
 
     try {
-      await authClient.register.email({
+      await authClient.signIn.email({
         email: data.email,
         password: data.password,
+        callbackURL: '/'
       });
 
-      const handleGoogleRegister = async() => {
-        await authClient.register.social({
-          provider: "google"
-        })
-      }
-
-      toast.success("Registerd successful ");
-      router.push('/');
+      toast.success("Login successful ");
 
     } catch (error) {
       
@@ -60,20 +49,13 @@ export default function Basic() {
 
   return (
     <div>
-      
+        <h1 className="font-semibold text-4xl text-center mt-10 text-green-500 ">Register <span className="text-orange-500">Now</span></h1>
         <div className="flex justify-center p-20">
         
       <Form
         className="flex w-100 card p-10 flex-col shadow-2xl gap-4"
         onSubmit={onSubmit}
       >
-          <h1 className="font-semibold text-4xl text-center mt-10 text-green-500 ">Register <span className="text-orange-500">Now</span></h1>
-
-          <TextField isRequired name="name" type="name">
-          <Label>Name</Label>
-          <Input placeholder="Enter Your name" />
-          <FieldError />
-        </TextField>
         
         <TextField isRequired name="email" type="email">
           <Label>Email</Label>
@@ -94,26 +76,10 @@ export default function Basic() {
         <div className="flex justify-center gap-2">
           <Button type="submit" disabled={loading}>
             <Check />
-            {loading ? "Loading..." : "Register"}
+            {loading ? "Loading..." : "Login"}
           </Button>
         </div>
-        <div className="flex justify-center">
-  <Button onClick={handleGoogleRegister}
-    type="button"
-    className="flex items-center gap-2  border-gray-300 hover:bg-gray-100 text-black shadow-md"
-  >
-    <Image
-      src="/google.png"
-      alt="google"
-      width={20}
-      height={20}
-    />
-    Register with Google
-  </Button>
-  </div>
       </Form>
-
-       
      </div>
     </div>
   );
