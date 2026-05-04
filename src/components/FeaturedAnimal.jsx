@@ -1,7 +1,7 @@
 import AnimalCard from "./AnimalCard";
 
 const FeaturedAnimal = async () => {
-  const res = await fetch("https://a08-qurbani-hat.vercel.app/data.json");
+  const res = await fetch("https://a08-qurbani-hat-e69y.vercel.app/data.json");
 
   const animals = await res.json();
   const topAnimals = animals.slice(0, 4);
