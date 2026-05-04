@@ -6,10 +6,11 @@ const AnimalCard = ({ animal }) => {
     <Card className="border rounded-2xl text-center">
       <div className="relative w-full h-50">
         <Image
-          fill
+          width={400}
+          height={200}
           src={animal.image}
           alt={animal.name}
-          className="rounded-xl object-cover"
+          className="rounded-xl object-cover w-full h-[200px]"
           loading="eager"
         />
       </div>

@@ -33,38 +33,32 @@ export default function RegisterPage() {
     });
 
     try {
-      await authClient.signIn.email({
+      await authClient.signUp.email({
         name: data.name,
         email: data.email,
         password: data.password,
-        image: data.photoUrl, 
+        image: data.photoUrl,
       });
 
       toast.success("Registration successful ");
       router.push("/");
-
     } catch (error) {
       toast.error(error?.message || "Registration failed");
     } finally {
       setLoading(false);
     }
   };
-   
 
   const handleGoogleRegister = async () => {
-    console.log('google btn clickd')
-  try {
-      await authClient.signIn.social({
+    
+    try {
+      await authClient.signUp.social({
         provider: "google",
       });
-      
-
-    } 
-    catch (error) {
+    } catch (error) {
       toast.error(error?.message || "Google Registration failed");
     }
   };
- 
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -72,7 +66,6 @@ export default function RegisterPage() {
         onSubmit={onSubmit}
         className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl flex flex-col gap-4"
       >
-        
         <h1 className="text-3xl font-bold text-center text-green-500">
           Create an <span className="text-orange-500">Account</span>
         </h1>
@@ -83,13 +76,12 @@ export default function RegisterPage() {
           <FieldError />
         </TextField>
 
-       
         <TextField isRequired name="email" type="email">
           <Label>Email </Label>
           <Input placeholder="john@example.com" />
           <FieldError />
         </TextField>
-        
+
         <TextField name="photoUrl" type="url">
           <Label>Photo URL</Label>
           <Input placeholder="https://example.com/photo.jpg" />
@@ -105,24 +97,24 @@ export default function RegisterPage() {
           <FieldError />
         </TextField>
 
-       <div className="flex justify-center">
-         <Button type="submit" disabled={loading}>
-          <Check />
-          {loading ? "Registering..." : "Register"}
-        </Button>
-       </div>
+        <div className="flex justify-center">
+          <Button type="submit" disabled={loading}>
+            <Check />
+            {loading ? "Registering..." : "Register"}
+          </Button>
+        </div>
 
         <p className="text-center text-gray-500">OR</p>
 
         <div className="flex justify-center">
           <Button
-          type="button"
-          onClick={handleGoogleRegister}
-          className="gap-2 border border-gray-300 hover:bg-gray-100"
-        >
-          <Image src="/google.png" alt="google" width={20} height={20} />
-          Continue with Google
-        </Button>
+            type="button"
+            onClick={handleGoogleRegister}
+            className="gap-2 border border-gray-300 hover:bg-gray-100"
+          >
+            <Image src="/google.png" alt="google" width={20} height={20} />
+            Continue with Google
+          </Button>
         </div>
       </Form>
     </div>
