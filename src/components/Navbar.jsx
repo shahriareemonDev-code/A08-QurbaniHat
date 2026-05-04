@@ -39,6 +39,9 @@ const Navbar = () => {
         <Link href="/all-animals">
           All Animals
         </Link>
+        <Link href="/profile">
+          Profile
+        </Link>
       </div>
 
       <div className="hidden md:flex items-center gap-4">
