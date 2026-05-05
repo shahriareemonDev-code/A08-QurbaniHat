@@ -33,7 +33,7 @@ export default function RegisterPage() {
     });
 
     try {
-      await authClient.signIn.email({
+      await authClient.signUp.email({
         name: data.name,
         email: data.email,
         password: data.password,
@@ -55,7 +55,7 @@ export default function RegisterPage() {
     try {
       await authClient.signIn.social({
         provider: "google",
-        callbackURL: "/"
+        
       });
     } catch (error) {
       toast.error(error?.message || "Google Registration failed");
@@ -109,10 +109,9 @@ export default function RegisterPage() {
         <p className="text-center text-gray-500">OR</p>
 
         <div className="flex justify-center">
-          <Button
+          <Button onClick={handleGoogleRegister}
             type="button"
-            onClick={handleGoogleRegister}
-            className="gap-2 border border-gray-300 hover:bg-gray-100"
+            className="gap-2 border border-gray-300 hover:bg-gray-10"
           >
             <Image src="/google.png" alt="google" width={20} height={20} />
             Continue with Google

@@ -24,9 +24,8 @@ export default function RootLayout({ children }) {
       <body className="className={`${ManropeFont.className} h-full antialiased`}">
         <Navbar />
         {children}
-       
-        <Footer />
-         <Toaster position="top-right"/> 
+       <Toaster position="top-right"/> 
+         <Footer />
       </body>
     </html>
   );

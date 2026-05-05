@@ -46,16 +46,18 @@ export function UpdateProfilePage() {
                 </form>
               </Surface>
             </Modal.Body>
-            <Modal.Footer>
+          
+          </Modal.Dialog>
+        </Modal.Container>
+      </Modal.Backdrop>
+        <Modal.Footer>
               <Button slot="close" variant="secondary">
                 Cancel
               </Button>
               <Button slot="close">Send Message</Button>
             </Modal.Footer>
-          </Modal.Dialog>
-        </Modal.Container>
-      </Modal.Backdrop>
     </Modal>
+    
   );
 };
 

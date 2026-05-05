@@ -48,11 +48,11 @@ const Navbar = () => {
 
         {!user && (
           <div className="flex gap-3 items-center">
-            <Link href="/login" className="bg-green-600 text-white px-3 py-1.5 rounded-lg">
+            <Link href="/login" className="bg-green-600 text-white px-3 py-1.5 rounded-lg hover:bg-green-700">
               Login
             </Link>
 
-            <Link href="/register" className="bg-green-600 text-white px-3 py-1.5 rounded-lg">
+            <Link href="/register" className="bg-green-600 text-white px-3 py-1.5 rounded-lg hover:bg-green-700">
               Register
             </Link>
           </div>
@@ -61,10 +61,13 @@ const Navbar = () => {
         {user && (
           <div className="flex items-center gap-3">
             <Avatar>
-              <Avatar.Image src={user?.image} />
+              <Avatar.Image 
+              alt=" "
+              src={user?.image}
+              referrerPolicy='no-referrer' />
               <Avatar.Fallback>
                 {user?.name?.charAt(0)}
-              </Avatar.Fallback>
+              </Avatar.Fallback> 
             </Avatar>
 
             <button
