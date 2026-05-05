@@ -55,6 +55,7 @@ export default function RegisterPage() {
     try {
       await authClient.signIn.social({
         provider: "google",
+        callbackURL: "/",
         
       });
     } catch (error) {
